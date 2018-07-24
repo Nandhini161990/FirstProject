@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/security/spring-context.xsd">
+   
+	<!-- <security:http pattern="/resources/**" security="none"></security:http> -->
+	<security:http use-expressions="true" auto-config="true">
+		<!-- <security:intercept-url pattern="/**" access="permitAll()" />
+		<security:intercept-url pattern="/admin/**"
+			access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/user/**"
+			access="hasRole('USER')" /> -->
+		<security:form-login login-page="/login"
+			login-processing-url="/perform_login"
+			authentication-success-forward-url="/login_success"
+			authentication-failure-forward-url="/login" username-parameter="username"
+			password-parameter="password" />
+		<security:logout logout-url="/logout" logout-success-url="/login" invalidate-session="true" delete-cookies="true"/>	
+		<security:csrf disabled="true" />
+	</security:http>
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select username, password, 'true' as enabled from UserDetail where username=? limit 1"
+				authorities-by-username-query="select username,role from UserDetail where username = ?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+</beans>
