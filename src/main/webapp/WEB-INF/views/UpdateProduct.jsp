@@ -10,9 +10,9 @@
 </head>
 <body>
 <form:form action="UpdateProduct" modelAttribute="product" method="post">
-<table align="center" cellspacing="3">
+<table align="center" cellspacing="3" class="table-striped">
 <form:hidden path="productId"/>
-<tr>
+<tr bgcolor="pink">
 <td colspan="2">Product Manage</td>
 </tr>
 <tr>
@@ -32,6 +32,7 @@
 <td colspan="2">Stock</td>
 <td><form:input path="stock"/></td>
 </tr>
+<br/><br/>
 <tr>
 <td colspan="2">Category</td>
 <td>

@@ -16,7 +16,7 @@
     <div class="carousel-inner">
  
 	  <div class="item active">
-        <img src="<c:url value="/resources/images/images (5).jpg"/>"alt="samsung" style="width:100%"/>
+        <img src="<c:url value="/resources/images/images (7).jpg"/>"alt="samsung" style="width:100%"/>
         <div class="carousel-caption">
           <h3>HN Mobiles</h3>
         </div>
@@ -30,7 +30,7 @@
       </div>
  
       <div class="item">
-        <img src="<c:url value="/resources/images/iphone.jpg"/>" alt="samsung" style="width:100%"/>
+        <img src="<c:url value="/resources/images/images (8).jpg"/>" alt="samsung" style="width:100%"/>
         <div class="carousel-caption">
           <h3>HN Mobiles</h3>
         </div>

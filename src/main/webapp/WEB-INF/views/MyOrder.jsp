@@ -36,7 +36,7 @@
 <tr>
 <td></td>
 <td>${cartItem.productName}</td>
-<td>${cartItem.quantity}</td>
+<td><input type="text" value="${cartItem.quantity}" name="quantity"/></td>
 <td>${cartItem.price}</td>
 <td>${cartItem.quantity * cartItem.price}</td>
 <td>

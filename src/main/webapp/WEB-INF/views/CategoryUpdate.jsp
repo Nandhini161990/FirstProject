@@ -12,7 +12,7 @@
 <body>
 <%-- <c:if test="$(flag)">--%>
 <form action="<c:url value='/UpdateCategory'/>"method="post">
-<table align="center" cellspacing="3">
+<table align="center" cellspacing="3" class="table-striped">
 <%-- <form:hidden path="categoryId"/> --%>
  <tr>
 <td>Category Id</td>
@@ -26,6 +26,7 @@
 <td>Category Description</td>
 <td><input type="text" name="catDesc" value="${categoryData.categoryDesc}"/></td>
 </tr>
+<br/><br/>
 <tr>
 <td colspan="2">
 <center>

@@ -21,6 +21,7 @@
 <li class="active"><a href="home">Home</a></li>
 <li><a href="category">Manage Category</a></li>
 <li><a href="product">Manage Product</a></li>
+<li><a href="supplier">Manage Supplier</a></li>
 </ul>
 </div>
 </nav>

@@ -18,25 +18,25 @@
 <tr>
 <form:hidden path="productId"/>
 <td colspan="2">Product Name</td>
-<td><form:input path="productName"/></td>
+<td><form:input path="productName" required="required"/></td>
 </tr>
 <tr>
 <td colspan="2">Product Description</td>
-<td><form:input path="productDesc"/></td>
+<td><form:input path="productDesc" required="required"/></td>
 </tr>
 
 <tr>
 <td colspan="2">Price</td>
-<td><form:input path="price"/></td>
+<td><form:input path="price" required="required"/></td>
 </tr>
 <tr>
 <td colspan="2">Stock</td>
-<td><form:input path="stock"/></td>
+<td><form:input path="stock" required="required"/></td>
 </tr>
 <tr>
 <td colspan="2">Category</td>
 <td>
-<form:select path="categoryId">
+<form:select path="categoryId" required="required">
 <form:option value="0" label="--Select List--"/>
 <form:options items="${categoryList}"/>
 </form:select>
@@ -44,15 +44,20 @@
 </tr>
 <tr>
 <td colspan="2">Supplier</td>
-<td><form:input path="supplierId"/></td>
+<td>
+<form:select path="supplierId" required="required">
+<form:option value="0" label="--Select List--" />
+<form:options items="${supplierList}"/>
+</form:select>
+</td>
 </tr>
 <tr>
 <td>Product Image</td>
-<td><form:input type="file" path="pimage"/></td>
+<td colspan="2"><form:input type="file" path="pimage"/></td>
 <tr>
 <td>
 
-<input type="submit" value="Save" class="btn btn-info"  />
+<center><input type="submit" value="Save" class="btn btn-info"  /></center>
 </td>
 </tr>
 </table>

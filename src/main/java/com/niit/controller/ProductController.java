@@ -20,8 +20,10 @@ import com.niit.dao.CategoryDAO;
 import com.niit.dao.ProductDAO;
 import com.niit.dao.CategoryDAOImpl;
 import com.niit.dao.ProductDAOImpl;
+import com.niit.dao.SupplierDAO;
 import com.niit.model.Category;
 import com.niit.model.Product;
+import com.niit.model.Supplier;
 
 @Controller
 public class ProductController {
@@ -29,23 +31,27 @@ public class ProductController {
 	public ProductDAO productdao;
 	@Autowired
 	public CategoryDAO categorydao;
+	@Autowired
+	public SupplierDAO supplierdao;
 
 	@RequestMapping(value = "/product")
 	public String showProductPage(Model m) {
 		Product product = new Product();
 		m.addAttribute(product);
 		m.addAttribute("categoryList",this.getCategories());
+		m.addAttribute("supplierList", this.getSuppliers());
 		m.addAttribute("productList", productdao.listProducts());
 		return "ManageProduct";
 	}
 
 	@RequestMapping(value = "/ProductInsert", method = RequestMethod.POST)
-	public String insertProduct(@ModelAttribute("product") Product product,
+	public String insertProduct(@ModelAttribute("product")Product product,
 			@RequestParam("pimage") MultipartFile imageFile, Model m) {
 
 		productdao.addProduct(product);
 		// System.out.println("Product Added");
 		m.addAttribute("categoryList", this.getCategories());
+		m.addAttribute("supplierList", this.getSuppliers());
 		Product product1 = new Product();
 		String path = "C:\\Users\\HARISH\\workspace\\MyBazaaarFrontend\\src\\main\\webapp\\resources\\images\\";
 		path = path + String.valueOf(product.getProductId()) + ".jpg";
@@ -146,5 +152,13 @@ public class ProductController {
 			categoryData.put(category.getCategoryId(), category.getCategoryName());
 		}
 		return categoryData;
+	}
+	public LinkedHashMap<Integer, String> getSuppliers() {
+		List<Supplier> listSuppliers = supplierdao.listSupplier();
+		LinkedHashMap<Integer, String> supplierData = new LinkedHashMap<Integer, String>();
+		for (Supplier supplier : listSuppliers) {
+			supplierData.put(supplier.getSupplierId(),supplier.getSupplierName());
+		}
+		return supplierData;
 	}
 }

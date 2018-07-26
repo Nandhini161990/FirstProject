@@ -47,6 +47,7 @@ social icon
 <c:if test="${sessionScope.role == 'ROLE_ADMIN'}">
 <li><a href="category">Manage Category</a></li>
 <li><a href="product">Manage Product</a></li>
+<li><a href="supplier">Manage Supplier</a></li>
 </c:if>
 <c:if test="${sessionScope.role == 'ROLE_USER'}">
 <li><a href="productDisplay">Display Product</a></li>
